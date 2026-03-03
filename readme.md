@@ -1,4 +1,4 @@
-## Testing out gh agentic workflows
+## gh agentic workflows proof of concept
 - instaling the gh-aw extenstion
 - add our first agentic workflow
 - the worklofw we added was `daily repo status repo`
