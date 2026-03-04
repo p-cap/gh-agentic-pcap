@@ -1,5 +1,9 @@
 ---
-on: workflow_dispatch
+description: |
+    This is a hello world workflow that creates an issue with the title Hello World from p-cap with a party emoji
+
+on: 
+  workflow_dispatch: {}
 permissions:
   issues: read
 tools:

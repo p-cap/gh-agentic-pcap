@@ -82,12 +82,14 @@ The markdown section contains natural language task descriptions using this stru
 #### Complete Workflow Example
 ```markdown
 ---
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 permissions:
   issues: write
   contents: read
 tools:
-  - github-cli
+  github:
+    toolsets: [repos, issues, pull\_requests, code\_security]
 ---
 # create a github agentic workflow that: [task description]
 
