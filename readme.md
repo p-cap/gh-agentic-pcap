@@ -20,7 +20,7 @@
         tools: ...
         ```
     - **Markdown Instructions**: This section includes natural language task descriptions.
-    
+
         ```yaml
         ---
         # Natural Language Instructions
@@ -39,6 +39,10 @@
 
 - Use the command `gh aw compile` to produce a `.github/workflows/<workflow-name>.lock.yml` file.
 - Commit and push your changes.
+
+### Prompting for a workflow markdown file
+We can feed a chatbot instructions on how to author our agentic workflow \
+https://github.github.com/gh-aw/guides/agentic-authoring/#planner
 
 ### Not Starting from Scratch
 - There is a repository that contains pre-made markdown files.
