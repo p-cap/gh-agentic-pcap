@@ -1,41 +1,29 @@
 ---
-name: "Hello World"
-on:
-  workflow_dispatch: {}
+on: workflow_dispatch
 permissions:
-  contents: read
   issues: read
-  pull-requests: read
-  security-events: read
 tools:
   github:
-    toolsets: [repos, issues, pull_requests, code_security]
-network: defaults
-safe-outputs:
-  create-issue:
-    max: 1
-engine: gemini
+    toolsets: [issues]
 ---
-# create a github agentic workflow that: prints hello world to console and creates a github issue with celebration emoji
+# create a github agentic workflow that: create an issue with the title \"Hello World from p-cap!\" and print a console message
 
 ## Objective
-Create a simple demonstration workflow that outputs a greeting message to the console and creates a corresponding GitHub issue to show basic agentic workflow capabilities.
+This workflow aims to create a GitHub issue with the title "Hello World from p-cap!" accompanied by a celebration emoji, and print a console message with a salute emoji.
 
 ## Context
-This is a hello world example workflow for learning and demonstration purposes. The workflow should interact with both the local console environment and the GitHub API to create an issue.
+This workflow will be triggered manually via the GitHub interface. It will create an issue and provide console feedback about the action taken.
 
 ## Requirements
-- Output the string "Hello World" to the console/stdout
-- Create a GitHub issue in the current repository with the title "🎉 Hello World from p-cap"
-- Use the celebration emoji (🎉) in the issue title
-- Complete both actions successfully
+- Create an issue titled "Hello World from p-cap!" with the celebration emoji 🎉.
+- Print "Hello World from p-cap!" in the console with a salute emoji 🫡.
+- Include a link back to the created issue in the console output.
 
 ## Steps
-- Print "Hello World" to the console
-- Create a GitHub issue with the title "🎉 Hello World from p-cap" in the current repository
-- Verify both actions completed successfully
+- Use the `github` toolset to create the issue with the specified title.
+- Capture the issue link generated from the creation process.
+- Print the message "Hello World from p-cap!" along with the salute emoji and include a link to the created issue.
 
 ## Constraints
-- Use the GitHub API or available GitHub CLI tools to create the issue
-- The workflow should execute within a GitHub Actions environment
-- Assume necessary GitHub credentials/permissions are available
+- The workflow must have no permissions beyond reading issues.
+- Ensure proper handling of any potential errors during issue creation.
