@@ -24,7 +24,7 @@
 #
 # gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"fe79c483eabe10a34fe075fa073f299ac301b87cccd1c35e01ba6ab5d45046d3","compiler_version":"v0.50.4"}
 
-name: "Hello World P-cap"
+name: "Hello World"
 "on": workflow_dispatch
 
 permissions: {}
@@ -32,7 +32,7 @@ permissions: {}
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
 
-run-name: "Hello World P-cap"
+run-name: "Hello World"
 
 jobs:
   activation:
@@ -233,7 +233,7 @@ jobs:
               version: "",
               agent_version: "0.0.417",
               cli_version: "v0.50.4",
-              workflow_name: "Hello World P-cap",
+              workflow_name: "Hello World",
               experimental: false,
               supports_tools_allowlist: true,
               run_id: context.runId,

@@ -6,7 +6,7 @@ tools:
   github:
     toolsets: [issues]
 ---
-# Hello World P-cap
+# Hello World
 
 ## Objective
 This workflow aims to create a GitHub issue with the title "Hello World from p-cap!" accompanied by a celebration emoji, and print a console message with a salute emoji.
