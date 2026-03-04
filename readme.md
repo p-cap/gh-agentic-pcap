@@ -50,7 +50,7 @@ https://github.github.com/gh-aw/guides/agentic-authoring/#planner
   [Awesome Agentic Workflows - Security Templates](https://github.com/OneRose328/awesome-agentic-workflows/blob/main/templates/security/)
 
 ### Special Mention
-This template was generated with the assistance of **Duck.ai**, showcasing the capabilities of AI in streamlining workflow processes.
+This template was generated with the assistance of **Duck.ai**, showcasing the capabilities of AI in streamlining workflow processes. Also, shoutout to [OneRose328](https://github.com/OneRose328) for the [awesome-agentic-workflow repo](https://github.com/OneRose328/awesome-agentic-workflows/)!
 
 ### References
 - [Workflow Structure](https://github.github.com/gh-aw/introduction/how-they-work/#workflow-structure)
