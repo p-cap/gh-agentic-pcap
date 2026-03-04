@@ -9,9 +9,24 @@
 ### Adding a Custom Workflow
 - Create a new file at `.github/workflows/<workflow-name>.md`.
 - The workflow markdown file consists of two major parts:
-  - **Frontmatter**
-  - **Markdown Instructions**
-  
+    - **Frontmatter**: The frontmatter has three components:
+        - `triggers`: Defines when the workflow runs.
+        - `permissions`: Specifies what the workflow can access.
+        - `tools`: Outlines the capabilities of the AI.
+        ```yaml
+        ---
+        on: ...
+        permissions: ...
+        tools: ...
+        ```
+    - **Markdown Instructions**: This section includes natural language task descriptions.
+    
+        ```yaml
+        ---
+        # Natural Language Instructions
+        Analyze this issue and provide helpful triage comments...
+        ```
+- Below is the sample workflow file `Frontmatter` + `markdown instructions`
   ```yaml
   ---
   on: ...
@@ -21,13 +36,6 @@
   # Natural Language Instructions
   Analyze this issue and provide helpful triage comments...
   ```
-
-- **Frontmatter**: The frontmatter has three components:
-  - `triggers`: Defines when the workflow runs.
-  - `permissions`: Specifies what the workflow can access.
-  - `tools`: Outlines the capabilities of the AI.
-
-- **Markdown Instructions**: This section includes natural language task descriptions.
 
 - Use the command `gh aw compile` to produce a `.github/workflows/<workflow-name>.lock.yml` file.
 - Commit and push your changes.
