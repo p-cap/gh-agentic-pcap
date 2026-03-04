@@ -6,7 +6,7 @@ tools:
   github:
     toolsets: [issues]
 ---
-# create a github agentic workflow that: create an issue with the title \"Hello World from p-cap!\" and print a console message
+# Hello World P-cap
 
 ## Objective
 This workflow aims to create a GitHub issue with the title "Hello World from p-cap!" accompanied by a celebration emoji, and print a console message with a salute emoji.
