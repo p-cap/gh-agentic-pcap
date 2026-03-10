@@ -1,18 +1,35 @@
 ---
+# Manual trigger for the workflow
 on:
   workflow_dispatch: {}
+
+# Permissions required for reading Dependabot alerts:
+# - security-events: read → Needed to pull Dependabot alerts
+#   Reference: https://docs.github.com/en/rest/dependabot/alerts?apiVersion=2022-11-28#about-dependabot-alerts
 permissions:
   contents: read
   issues: read
   pull-requests: read
-  security-events: read
+  security-events: read   # REQUIRED for Dependabot alert access
+
 tools:
   github:
+    # The "code_security" toolset provides:
+    # - Dependabot alert endpoints
+    # - Security advisories
+    # - Dependency graph security info
+    #   Reference: https://docs.github.com/en/rest/dependabot
     toolsets: [repos, issues, pull_requests, code_security]
+
+# Required for agent to access GitHub APIs
 network: defaults
+
+# Allow agent to create a single issue as output
 safe-outputs:
   create-issue:
     max: 1
+
+# Agent engine
 engine: gemini
 ---
 

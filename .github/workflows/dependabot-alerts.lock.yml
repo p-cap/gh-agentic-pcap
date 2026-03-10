@@ -22,7 +22,7 @@
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"9f4f083d86af80e2c77552985fd751e1eede732e3f4c48eabd7445f628cfa270","compiler_version":"v0.50.4"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"370ae830122cd2793b6980faa8222da4a1e2377c4fbfd50e711db47721f00c61","compiler_version":"v0.50.4"}
 
 name: "Dependabot alerts"
 "on":
