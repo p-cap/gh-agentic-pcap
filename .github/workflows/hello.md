@@ -8,6 +8,7 @@ permissions:
 safe-outputs:
   create-issue:
     max: 1
+engine: gemini
 # Optional: keep tools minimal; the agent can still emit safe-outputs.
 # tools:
 #   github:
