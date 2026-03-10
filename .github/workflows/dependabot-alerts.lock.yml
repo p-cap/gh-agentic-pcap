@@ -21,11 +21,10 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Creates an issue titled "Hello from p-cap!" when triggered manually.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"0802d4e40f6d029bb81f3632cf4b07da22240291d39370d2968ba35a60cbac24","compiler_version":"v0.50.4"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"9f4f083d86af80e2c77552985fd751e1eede732e3f4c48eabd7445f628cfa270","compiler_version":"v0.50.4"}
 
-name: "Manual Issue Creator"
+name: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
 "on":
   workflow_dispatch: {}
 
@@ -34,7 +33,7 @@ permissions: {}
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
 
-run-name: "Manual Issue Creator"
+run-name: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
 
 jobs:
   activation:
@@ -68,7 +67,7 @@ jobs:
       - name: Check workflow file timestamps
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          GH_AW_WORKFLOW_FILE: "hello.lock.yml"
+          GH_AW_WORKFLOW_FILE: "dependabot-alerts.lock.yml"
         with:
           script: |
             const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
@@ -134,7 +133,7 @@ jobs:
           </system>
           GH_AW_PROMPT_EOF
           cat << 'GH_AW_PROMPT_EOF'
-          {{#runtime-import .github/workflows/hello.md}}
+          {{#runtime-import .github/workflows/dependabot-alerts.md}}
           GH_AW_PROMPT_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
@@ -201,6 +200,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: read
+      pull-requests: read
+      security-events: read
     env:
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
       GH_AW_ASSETS_ALLOWED_EXTS: ""
@@ -210,7 +212,7 @@ jobs:
       GH_AW_SAFE_OUTPUTS: /opt/gh-aw/safeoutputs/outputs.jsonl
       GH_AW_SAFE_OUTPUTS_CONFIG_PATH: /opt/gh-aw/safeoutputs/config.json
       GH_AW_SAFE_OUTPUTS_TOOLS_PATH: /opt/gh-aw/safeoutputs/tools.json
-      GH_AW_WORKFLOW_ID_SANITIZED: hello
+      GH_AW_WORKFLOW_ID_SANITIZED: dependabotalerts
     outputs:
       checkout_pr_success: ${{ steps.checkout-pr.outputs.checkout_pr_success || 'true' }}
       detection_conclusion: ${{ steps.detection_conclusion.outputs.conclusion }}
@@ -271,7 +273,7 @@ jobs:
               version: "",
               agent_version: "",
               cli_version: "v0.50.4",
-              workflow_name: "Manual Issue Creator",
+              workflow_name: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan",
               experimental: false,
               supports_tools_allowlist: true,
               run_id: context.runId,
@@ -615,7 +617,7 @@ jobs:
                   "GITHUB_LOCKDOWN_MODE": "$GITHUB_MCP_LOCKDOWN",
                   "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_MCP_SERVER_TOKEN",
                   "GITHUB_READ_ONLY": "1",
-                  "GITHUB_TOOLSETS": "context,repos,issues,pull_requests"
+                  "GITHUB_TOOLSETS": "repos,issues,pull_requests,code_security"
                 }
               },
               "safeoutputs": {
@@ -818,8 +820,8 @@ jobs:
         if: always() && steps.detection_guard.outputs.run_detection == 'true'
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          WORKFLOW_NAME: "Manual Issue Creator"
-          WORKFLOW_DESCRIPTION: "Creates an issue titled \"Hello from p-cap!\" when triggered manually."
+          WORKFLOW_NAME: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
+          WORKFLOW_DESCRIPTION: "No description provided"
           HAS_PATCH: ${{ steps.collect_output.outputs.has_patch }}
         with:
           script: |
@@ -932,7 +934,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: "1"
-          GH_AW_WORKFLOW_NAME: "Manual Issue Creator"
+          GH_AW_WORKFLOW_NAME: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -945,7 +947,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Manual Issue Creator"
+          GH_AW_WORKFLOW_NAME: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -958,10 +960,10 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Manual Issue Creator"
+          GH_AW_WORKFLOW_NAME: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
-          GH_AW_WORKFLOW_ID: "hello"
+          GH_AW_WORKFLOW_ID: "dependabot-alerts"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.agent.outputs.secret_verification_result }}
           GH_AW_CHECKOUT_PR_SUCCESS: ${{ needs.agent.outputs.checkout_pr_success }}
           GH_AW_GROUP_REPORTS: "false"
@@ -977,7 +979,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Manual Issue Creator"
+          GH_AW_WORKFLOW_NAME: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
           GH_AW_NOOP_MESSAGE: ${{ steps.noop.outputs.noop_message }}
@@ -1000,8 +1002,8 @@ jobs:
     timeout-minutes: 15
     env:
       GH_AW_ENGINE_ID: "gemini"
-      GH_AW_WORKFLOW_ID: "hello"
-      GH_AW_WORKFLOW_NAME: "Manual Issue Creator"
+      GH_AW_WORKFLOW_ID: "dependabot-alerts"
+      GH_AW_WORKFLOW_NAME: "create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan"
     outputs:
       code_push_failure_count: ${{ steps.process_safe_outputs.outputs.code_push_failure_count }}
       code_push_failure_errors: ${{ steps.process_safe_outputs.outputs.code_push_failure_errors }}
