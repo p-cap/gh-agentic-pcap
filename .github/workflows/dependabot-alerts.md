@@ -16,7 +16,7 @@ safe-outputs:
 engine: gemini
 ---
 
-# create a github agentic workflow that: prioritize dependabot alerts for a single repo and create a consolidated issue with a risk-aware, non-breaking-first plan
+# Dependabot alerts 
 
 ## Objective
 Create a manual agentic workflow that retrieves Dependabot alerts for the current repository, prioritizes Critical and High severity items while avoiding breaking changes (Python focus), includes both direct and transitive dependencies, and outputs a single consolidated GitHub Issue containing the prioritized remediation plan.
